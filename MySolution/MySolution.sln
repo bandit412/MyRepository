@@ -25,9 +25,9 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "ProjectWebsite", "ProjectWe
 		DefaultWebSiteLanguage = "Visual C#"
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SolutionSystem", "SolutionSystem\SolutionSystem.csproj", "{99B58D12-6145-4615-B0F0-0AD17FA5F371}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChinookSystem", "SolutionSystem\ChinookSystem.csproj", "{99B58D12-6145-4615-B0F0-0AD17FA5F371}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SolutionSystem.Data", "SolutionSystem.Data\SolutionSystem.Data.csproj", "{4FD514C1-5E90-41F0-AD87-2E66638EF223}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChinookSystem.Data", "SolutionSystem.Data\ChinookSystem.Data.csproj", "{4FD514C1-5E90-41F0-AD87-2E66638EF223}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

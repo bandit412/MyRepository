@@ -6,20 +6,20 @@ using System.Threading.Tasks;
 
 #region Additional Namespaces
 using System.Data.Entity;
-//using SolutionSystem.Data.Entity;
+//using System.Data.Entity;
 #endregion
 
-namespace SolutionSystem.DAL
+namespace ChinookSystem.DAL
 {
     // This is an internal class for security reasons
     // Access is restricted to within this class library project
     // Inherits DbContext for Entity Framework, which requires
     //   System.Data.Entity
-    internal class SolutionContext : DbContext
+    internal class ChinookContext : DbContext
     {
         // Pass the connection string name to the
         //   DbContext using :base()
-        public SolutionContext() :base("DBName")
+        public ChinookContext() :base("ChinookDB")
         {
 
         }
