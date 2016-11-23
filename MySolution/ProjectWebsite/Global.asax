@@ -14,6 +14,10 @@
         //Load the startup roles for Chinook
         var roleManager = new RoleManager();
         roleManager.AddStartupRoles();
+
+        // Load the webmaster for Chinook
+        var userManager = new UserManager();
+        userManager.AddWebmaster();
     }
 
 </script>
