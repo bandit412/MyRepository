@@ -35,6 +35,5 @@ namespace ChinookSystem.Security
             }
         } // eom
 
-
     }//eoc
 }//eon
