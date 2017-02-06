@@ -16,6 +16,51 @@ namespace ChinookSystem.BLL
     [DataObject]
     public class ArtistController
     {
+        // Dump the entire Artist entity
+        // This will use Entity Framework access
+        // Entity classes will be used to define the data
+        [DataObjectMethod(DataObjectMethodType.Select, false)]
+        public List<Artist> Artist_ListAll()
+        {
+            // Setup transaction area
+            using (var context = new ChinookContext())
+            {
+                return context.Artists.ToList();
+            }
+        }//eom
 
-    }
-}
+        // Report a DataSet containing data from multiple entities
+        // This will use LINQ to Entity access
+        // POCO classes will be used to define the data
+        [DataObjectMethod(DataObjectMethodType.Select, false)]
+        public List<ArtistAlbum> ArtistAlbums_Get(int year)
+        {
+            // Setup transaction area
+            using (var context = new ChinookContext())
+            {
+                // When you bring your query from LinqPad to your
+                //   your program you MUST change the reference(s)
+                //   to the data source
+                // You may also need to change your navigation
+                //   referencing use in LinqPad to the
+                //   navigation properties you stated in the
+                //   Entity class definitions
+
+                // This will stage the LINQ query, not execute
+                var results = from x in context.Albums
+                              where x.ReleaseYear == year
+                              orderby x.Artist.Name, x.Title
+                              select new ArtistAlbum
+                              {
+                                  // Name and Title are POCO class property names
+                                  Name = x.Artist.Name,
+                                  Title = x.Title
+                              };
+                // The following requires the query data in memory
+                //   .ToList()
+                // At this poin the query will actuall execute
+                return results.ToList();
+            }
+        }//eom
+    }//eoc
+}//eon
