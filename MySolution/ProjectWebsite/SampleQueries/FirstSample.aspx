@@ -18,7 +18,7 @@
     </asp:GridView>
     <br />
     <h2>Artists by Year</h2>
-    <asp:Label ID="YearLabel" runat="server" Text="Enter Year: " />&nbsp;<asp:TextBox ID="YearEntry" runat="server" Text="2016"></asp:TextBox>
+    <asp:Label ID="YearLabel" runat="server" Text="Enter Year: " />&nbsp;<asp:TextBox ID="YearEntry" runat="server" Text="2015"></asp:TextBox>
     &nbsp;&nbsp;
     <asp:Button ID="SubmitQuery" runat="server" Text="Fetch" />
     <br />
