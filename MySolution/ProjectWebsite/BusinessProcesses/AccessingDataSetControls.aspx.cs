@@ -42,4 +42,42 @@ public partial class BusinessProcesses_AccessingDataSetControls : System.Web.UI.
             " Size is: " + size.ToString() + " Price is: " + price.ToString();
         MessageUserControl.ShowInfo(msg);
     }
+
+    protected void WalkThroughGV_Click(object sender, EventArgs e)
+    {
+        int trackCount = 0;
+        int albumPlayTime = 0;
+        int albumSize = 0;
+        decimal albumPrice = 0m;
+        string msg = null;
+        foreach (GridViewRow item in TracksListGV.Rows)
+        {
+            trackCount += 1;
+            albumPlayTime += int.Parse(item.Cells[1].Text);
+            albumSize += int.Parse((item.FindControl("Bytes") as Label).Text);
+            albumPrice += decimal.Parse((item.FindControl("UnitPrice") as TextBox).Text);
+        }
+        msg = "GridView Totals: # of tracks is: " + trackCount.ToString() + " M/S is: " + albumPlayTime.ToString() +
+          " Size is: " + albumSize.ToString() + " Price is: " + albumPrice.ToString();
+        MessageUserControl.ShowInfo(msg);
+    }
+
+    protected void WalkThroughLV_Click(object sender, EventArgs e)
+    {
+        int trackCount = 0;
+        int albumPlayTime = 0;
+        int albumSize = 0;
+        decimal albumPrice = 0m;
+        string msg = null;
+        foreach (ListViewDataItem item in TracksListLV.Items)
+        {
+            trackCount += 1;
+            albumPlayTime += int.Parse((item.FindControl("Milliseconds") as Label).Text);
+            albumSize += int.Parse((item.FindControl("Bytes") as Label).Text);
+            albumPrice += decimal.Parse((item.FindControl("UnitPrice") as TextBox).Text);
+        }
+        msg = "ListView Totals: # of tracks is: " + trackCount.ToString() + " M/S is: " + albumPlayTime.ToString() +
+          " Size is: " + albumSize.ToString() + " Price is: " + albumPrice.ToString();
+        MessageUserControl.ShowInfo(msg);
+    }
 }
