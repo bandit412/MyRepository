@@ -28,5 +28,7 @@ namespace ChinookSystem.Data.Entities
 
         // Navigation properties for use by Linq
         public virtual Album Album { get; set; }
+        public virtual MediaType MediaType { get; set; }
+        public virtual Genre Genre { get; set; }
     }
 }
