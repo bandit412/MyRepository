@@ -60,6 +60,8 @@
                     No data to display
                 </EmptyDataTemplate>
             </asp:GridView>
+            <br />
+            <asp:Button ID="WalkThroughGV" runat="server" Text="Walk Through (GV)" OnClick="WalkThroughGV_Click" />
             <br /><br />
             <asp:ListView ID="TracksListLV" runat="server" DataSourceID="TracksDataODS" OnItemCommand="TracksListLV_ItemCommand">
                 <EmptyDataTemplate>
@@ -105,6 +107,8 @@
                     </tr>
                 </ItemTemplate>
             </asp:ListView>
+            <br />
+            <asp:Button ID="WalkThroughLV" runat="server" Text="Walk Through (LV)" OnClick="WalkThroughLV_Click" />
         </asp:Panel>
     </div>
 </asp:Content>
