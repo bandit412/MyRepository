@@ -101,7 +101,7 @@
                 <ItemTemplate>
                     <tr>
                         <td>
-                            <asp:LinkButton ID="AddToPlaylist" runat="server" CssClass="btn">
+                            <asp:LinkButton ID="AddToPlaylist" runat="server" CssClass="btn" CommandArgument='<%#Eval("TrackId") %>'>
                             <span aria-hidden="true" class="glyphicon glyphicon-plus"></span>
                             </asp:LinkButton>
                         </td>
