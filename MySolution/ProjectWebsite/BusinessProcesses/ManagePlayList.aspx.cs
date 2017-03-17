@@ -113,4 +113,47 @@ public partial class BusinessProcesses_ManagePlayList : System.Web.UI.Page
             });
         }
     }
+
+    protected void DeleteTrack_Click(object sender, EventArgs e)
+    {
+        if(CurrentPlaylist.Rows.Count == 0)
+        {
+            MessageUserControl.ShowInfo("You must have a playlist with entries before trying to remove a track.");
+        }
+        else
+        {
+            int rowIndex = CurrentPlaylist.SelectedIndex;
+            if(rowIndex > -1)
+            {
+                int trackId = int.Parse((CurrentPlaylist.Rows[rowIndex].FindControl("PL_TrackId") as Label).Text);
+                int trackNumber = int.Parse((CurrentPlaylist.Rows[rowIndex].FindControl("PL_TrackNumber") as Label).Text);
+                MessageUserControl.TryRun(() =>
+                {
+                    PlaylistTrackController controller = new PlaylistTrackController();
+                    controller.RemovePlaylistTrack(PlaylistName.Text, trackId, trackNumber);
+                    List<TracksForPlaylist> results = controller.PlaylistTracks_Get(PlaylistName.Text);
+                    CurrentPlaylist.DataSource = results;
+                    CurrentPlaylist.SelectedIndex = -1;
+                    CurrentPlaylist.DataBind();
+                });
+            }
+        }
+    }
+
+    protected override void Render(HtmlTextWriter writer)
+    {
+        // This code sets up the ability to click anywhere on a row of a 
+        //   GridView to select the row for processing
+        foreach(GridViewRow r in CurrentPlaylist.Rows)
+        {
+            if(r.RowType == DataControlRowType.DataRow)
+            {
+                r.Attributes["onmouseover"] = "this.style.cursor='pointer';this.style.textDecoration='underline';";
+                r.Attributes["onmouseout"] = "this.style.textDecoration='none';";
+                r.ToolTip = "Click to select row";
+                r.Attributes["onclick"] = this.Page.ClientScript.GetPostBackClientHyperlink(this.CurrentPlaylist, "Select$" + r.RowIndex, true);
+            }
+        }
+        base.Render(writer);
+    }
 }

@@ -78,5 +78,27 @@ namespace ChinookSystem.BLL
             }
         }//eom
 
+        public void RemovePlaylistTrack(string playlistName, int trackId, int trackNumber)
+        {
+            using (var context = new ChinookContext())
+            {
+                Playlist existing = (from x in context.Playlists
+                                     where x.Name.Equals(playlistName)
+                                     select x).FirstOrDefault();
+                var trackToRemove = context.PlaylistTracks.Find(existing.PlaylistId, trackId);
+                List<PlaylistTrack> tracksKept = (from x in existing.PlaylistTracks
+                                                  where x.TrackNumber > trackNumber
+                                                  orderby x.TrackNumber
+                                                  select x).ToList();
+                context.PlaylistTracks.Remove(trackToRemove);
+                foreach (var track in tracksKept)
+                {
+                    track.TrackNumber -= 1;
+                    context.Entry(track).Property("TrackNumber").IsModified = true;
+                }
+                context.SaveChanges();
+            }
+        }//eom
+
     }//eoc
 }//eon

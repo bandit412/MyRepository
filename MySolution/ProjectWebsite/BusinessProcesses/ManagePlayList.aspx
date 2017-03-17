@@ -138,7 +138,7 @@
             <asp:TextBox ID="PlaylistName" runat="server" />&nbsp&nbsp;
             <asp:Button ID="PlaylistFetch" runat="server" CssClass="btn btn-primary" Text="Fetch" OnClick="PlaylistFetch_Click" />
             &nbsp;&nbsp;
-            <asp:LinkButton ID="DeleteTrack" runat="server" CssClass="btn">
+            <asp:LinkButton ID="DeleteTrack" runat="server" CssClass="btn" OnClick="DeleteTrack_Click">
                 <span aria-hidden="true" class="glyphicon glyphicon-remove" style="color:red;"></span>
             </asp:LinkButton>
             <br />
@@ -186,6 +186,9 @@
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>
+                <EmptyDataTemplate>
+                    No current tracks on playlist
+                </EmptyDataTemplate>
             </asp:GridView>
         </div>
     </div>
