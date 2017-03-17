@@ -62,5 +62,22 @@ namespace ChinookSystem.BLL
                 return results.ToList();
             }
         }//eom
+
+        [DataObjectMethod(DataObjectMethodType.Select, false)]
+        public List<ForeignKeyList> ArtistList()
+        {
+            using (var context = new ChinookContext())
+            {
+                var results = from x in context.Artists
+                              orderby x.Name
+                              select new ForeignKeyList()
+                              {
+                                  PFKeyIdentifier = x.ArtistId,
+                                  DisplayText = x.Name
+                              };
+                return results.ToList();
+            }
+        }//eom
+
     }//eoc
 }//eon

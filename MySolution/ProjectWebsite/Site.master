@@ -88,6 +88,10 @@
                                 <asp:MenuItem Text="Rep Customers" NavigateUrl="~/SampleQueries/RepresentativeCustomers.aspx" />
                                 <asp:MenuItem Text="DataSet Controls" NavigateUrl="~/BusinessProcesses/AccessingDataSetControls.aspx" />
                             </asp:MenuItem>
+                            <asp:MenuItem Text="Business Procs" Value="Business Procs">
+                                <asp:MenuItem Text="Accessing Controls" NavigateUrl="~/BusinessProcesses/AccessingDataSetControls.aspx" />
+                                <asp:MenuItem Text="Manage PlayList" NavigateUrl="~/BusinessProcesses/ManagePlayList.aspx" />
+                            </asp:MenuItem>
                             <asp:MenuItem Text="About" NavigateUrl="~/About.aspx" />
                             <asp:MenuItem Text="Contact" NavigateUrl="~/Contact.aspx" />
                         </Items>
