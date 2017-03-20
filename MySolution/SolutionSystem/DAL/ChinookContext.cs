@@ -32,5 +32,7 @@ namespace ChinookSystem.DAL
         public DbSet<Employee> Employees { get; set; }
         public DbSet<MediaType> MediaTypes { get; set; }
         public DbSet<Genre> Genres { get; set; }
+        public DbSet<Playlist> Playlists { get; set; }
+        public DbSet<PlaylistTrack> PlaylistTracks { get; set; }
     }
 }
