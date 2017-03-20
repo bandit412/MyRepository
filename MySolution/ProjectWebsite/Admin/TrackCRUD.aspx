@@ -9,10 +9,14 @@
     </div>
     <uc1:MessageUserControl runat="server" ID="MessageUserControl" />
 
+<<<<<<< HEAD
     <asp:ListView ID="TrackList" runat="server" 
         DataSourceID="TrackListODS" 
         InsertItemPosition="LastItem" 
         DataKeyNames="TrackId">
+=======
+    <asp:ListView ID="TrackList" runat="server">
+>>>>>>> origin/TESTING
         <LayoutTemplate>
             <table runat="server">
                 <tr runat="server">
@@ -62,6 +66,7 @@
                     <asp:Label ID="NameLabel" runat="server" Text='<%#Eval("Name") %>' />
                 </td> 
                 <td>
+<<<<<<< HEAD
                     <asp:DropDownList ID="AlbumList" runat="server"
                         DataSourceID="AlbumListODS"
                         DataTextField="DisplayText"
@@ -81,6 +86,15 @@
                         DataTextField="DisplayText"
                         DataValueField="PFKeyIdentifier">
                     </asp:DropDownList>
+=======
+                    <asp:DropDownList ID="AlbumList" runat="server"></asp:DropDownList>
+                </td>
+                <td>
+                    <asp:DropDownList ID="MediaTypeList" runat="server"></asp:DropDownList>
+                </td>
+                <td>
+                    <asp:DropDownList ID="GenreList" runat="server"></asp:DropDownList>
+>>>>>>> origin/TESTING
                 </td>
                 <td>
                     <asp:Label ID="ComposerLabel" runat="server" Text='<%#Eval("Composer") %>' />
@@ -98,6 +112,7 @@
         </ItemTemplate>
 
         <EditItemTemplate>
+<<<<<<< HEAD
             <tr>    
                 <td>
                     <asp:Button ID="UpdateButton" runat="server" CommandName="Update" Text="Update" />
@@ -277,5 +292,27 @@
         SelectMethod="GenreList" 
         TypeName="ChinookSystem.BLL.GenreController">
     </asp:ObjectDataSource>
+=======
+
+        </EditItemTemplate>
+
+        <InsertItemTemplate>
+
+        </InsertItemTemplate>
+
+        <SelectedItemTemplate>
+
+        </SelectedItemTemplate>
+        
+        <EmptyDataTemplate>
+
+        </EmptyDataTemplate>
+    </asp:ListView>
+
+    <asp:ObjectDataSource ID="TrackListODS" runat="server"></asp:ObjectDataSource>
+    <asp:ObjectDataSource ID="AlbumListODS" runat="server"></asp:ObjectDataSource>
+    <asp:ObjectDataSource ID="MediaTypeListODS" runat="server"></asp:ObjectDataSource>
+    <asp:ObjectDataSource ID="GenreListODS" runat="server"></asp:ObjectDataSource>
+>>>>>>> origin/TESTING
 </asp:Content>
 
