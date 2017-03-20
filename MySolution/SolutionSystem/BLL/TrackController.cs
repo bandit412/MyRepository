@@ -102,7 +102,7 @@ namespace ChinookSystem.BLL
             return results;
         }//eom
 
-<<<<<<< HEAD
+
         [DataObjectMethod(DataObjectMethodType.Select,false)]
         public List<Track> ListTracks()
         {
@@ -113,8 +113,6 @@ namespace ChinookSystem.BLL
             }
         }//eom
 
-=======
->>>>>>> origin/TESTING
         [DataObjectMethod(DataObjectMethodType.Select, false)]
         public Track GetTrack(int trackid)
         {

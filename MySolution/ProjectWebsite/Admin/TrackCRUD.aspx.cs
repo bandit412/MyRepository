@@ -11,12 +11,10 @@ public partial class Admin_TrackCRUD : System.Web.UI.Page
     {
 
     }
-<<<<<<< HEAD
 
     protected void CheckForException(object sender, ObjectDataSourceStatusEventArgs e)
     {
         MessageUserControl.HandleDataBoundException(e);
     }
-=======
->>>>>>> origin/TESTING
+
 }
